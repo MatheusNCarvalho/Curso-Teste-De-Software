@@ -3,7 +3,7 @@ using Bogus.DataSets;
 using Features.Clientes;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using Xunit;
 
 namespace Features.Tests
@@ -19,20 +19,35 @@ namespace Features.Tests
 
         public Cliente GerarClienteValido()
         {
+            return GerarClientes(1).FirstOrDefault();
+        }
+
+        public IList<Cliente> GerarClientesAtivosAndInativos()
+        {
+            var clientes = new List<Cliente>();
+            clientes.AddRange(GerarClientes(50));
+            clientes.AddRange(GerarClientes(50, false));
+
+            return clientes;
+        }
+
+
+        public IList<Cliente> GerarClientes(int quantidade, bool ativo = true)
+        {
             var genero = new Faker().PickRandom<Name.Gender>();
 
-            var cliente = new Faker<Cliente>("pt_BR")
+            var clientes = new Faker<Cliente>("pt_BR")
                 .CustomInstantiator(f => new Cliente(Guid.NewGuid(),
                     f.Name.FirstName(genero),
                     f.Name.LastName(genero),
                     f.Date.Past(80, DateTime.Now.AddYears(-18)),
                     "",
-                    true,
+                    ativo,
                     DateTime.Now))
                 .RuleFor(c => c.Email, (f, c) =>
                     f.Internet.Email(c.Nome.ToLower(), c.Sobrenome.ToLower()));
 
-            return cliente;
+            return clientes.Generate(quantidade);
         }
 
         public Cliente GerarClienteInvalido()
@@ -49,6 +64,7 @@ namespace Features.Tests
 
             return cliente;
         }
+
 
         public void Dispose()
         {
