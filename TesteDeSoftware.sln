@@ -7,23 +7,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 -Testes de Unidade", "01
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.1 - Testes Basicos", "1.1 - Testes Basicos", "{07F3D8B9-2494-4910-8B46-BD52E3ADA796}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo", "TesteDeUnidade\Demo\Demo.csproj", "{2E70E052-88B4-43F3-96B2-62C1109A91D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo", "01 - Testes de Unidades\Demo\Demo.csproj", "{2E70E052-88B4-43F3-96B2-62C1109A91D1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.Tests", "TesteDeUnidade\Demo.Tests\Demo.Tests.csproj", "{E0353451-C62A-4E47-8117-62D56DAFFE43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.Tests", "01 - Testes de Unidades\Demo.Tests\Demo.Tests.csproj", "{E0353451-C62A-4E47-8117-62D56DAFFE43}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.2 - Features", "2.2 - Features", "{3B585AE7-7347-404F-8142-DD8FD9C2B836}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Features", "TesteDeUnidade\Features\Features.csproj", "{319B84C2-EDAD-4171-8BBC-A23A89D8BDE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Features", "01 - Testes de Unidades\Features\Features.csproj", "{319B84C2-EDAD-4171-8BBC-A23A89D8BDE4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Features.Tests", "TesteDeUnidade\Features.Tests\Features.Tests.csproj", "{439BD77D-97E4-4437-84FD-47B9748585E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Features.Tests", "01 - Testes de Unidades\Features.Tests\Features.Tests.csproj", "{439BD77D-97E4-4437-84FD-47B9748585E8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - TDD", "02 - TDD", "{556B9639-89F3-4CCC-8B24-40CFBB822381}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F08391D2-60A4-4973-AD1E-0E60F81A983C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NerdStore.Vendas.Application.Tests", "TesteDeUnidade\02 - TDD\NerdStore.Vendas.Application.Tests\NerdStore.Vendas.Application.Tests.csproj", "{6F5F57D3-F130-4B15-87FA-C51C8FFC0AFC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NerdStore.Vendas.Application.Tests", "02 - TDD\tests\NerdStore.Vendas.Application.Tests\NerdStore.Vendas.Application.Tests.csproj", "{6F5F57D3-F130-4B15-87FA-C51C8FFC0AFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NerdStore.Vendas.Domain.Tests", "TesteDeUnidade\02 - TDD\NerdStore.Vendas.Domain.Tests\NerdStore.Vendas.Domain.Tests.csproj", "{6A06FA66-CFAD-4530-A57F-82CA6DD8A9F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NerdStore.Vendas.Domain.Tests", "02 - TDD\tests\NerdStore.Vendas.Domain.Tests\NerdStore.Vendas.Domain.Tests.csproj", "{6A06FA66-CFAD-4530-A57F-82CA6DD8A9F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
