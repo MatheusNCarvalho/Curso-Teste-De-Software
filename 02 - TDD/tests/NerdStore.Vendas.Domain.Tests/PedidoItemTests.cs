@@ -17,7 +17,7 @@ namespace NerdStore.Vendas.Domain.Tests
             // Arrange & Act & Assert
             Action action = () => new PedidoItem(Guid.NewGuid(), "Produto Teste", Pedido.MIN_UNIDADES_ITEM - 1, 100);                    
 
-            action.Should().Throw<DomainExeciption>();
+            action.Should().Throw<DomainException>();
         }
     }
 }

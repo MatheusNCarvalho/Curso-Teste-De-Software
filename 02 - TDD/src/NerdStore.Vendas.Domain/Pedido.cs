@@ -6,17 +6,20 @@ using System.Linq;
 
 namespace NerdStore.Vendas.Domain
 {
-    public class Pedido : Entity, IAggreagteRoot
+    public class Pedido : Entity, IAggregateRoot
     {
         public static int MAX_UNIDADES_ITEM => 15;
         public static int MIN_UNIDADES_ITEM => 1;
 
         protected Pedido() { }
 
+        public DateTime DataCadastro { get; private set; }
+        public int Codigo { get; private set; }
         public Guid ClienteId { get; private set; }
         public PedidoStatus PedidoStatus { get; private set; }
         public decimal ValorTotal { get; private set; }
         public IList<PedidoItem> PedidoItems { get; set; } = new List<PedidoItem>();
+        public Guid VoucherId { get; private set; }
         public Voucher Voucher { get; private set; }
         public bool VoucherUtilizado { get; private set; }
         public decimal ValorDesconto { get; private set; }
@@ -47,6 +50,7 @@ namespace NerdStore.Vendas.Domain
         {
             ValidarPedidoItemInexistente(pedidoItem);
             ValidarQuantidadeItemPermitida(pedidoItem);
+            pedidoItem.AssociarPedido(Id);
 
             var itemExistente = PedidoItems.FirstOrDefault(p => p.ProdutoId == pedidoItem.ProdutoId);
 
@@ -74,6 +78,7 @@ namespace NerdStore.Vendas.Domain
             }
 
             Voucher = voucher;
+            VoucherId = voucher.Id;
             VoucherUtilizado = true;
 
             CalcularValorTotalDesconto();
@@ -125,7 +130,7 @@ namespace NerdStore.Vendas.Domain
 
             if (quantidadeItens > MAX_UNIDADES_ITEM)
             {
-                throw new DomainExeciption($"Máximo de {MAX_UNIDADES_ITEM} unidades por produto");
+                throw new DomainException($"Máximo de {MAX_UNIDADES_ITEM} unidades por produto");
             }
         }
 
@@ -134,11 +139,17 @@ namespace NerdStore.Vendas.Domain
             return PedidoItems.Any(p => p.ProdutoId == item.ProdutoId);
         }
 
+        public void AtualizarUnidades(PedidoItem item, int unidades)
+        {
+            item.AtualizarUnidades(unidades);
+            AtualizarItem(item);
+        }
+
         private void ValidarPedidoItemInexistente(PedidoItem item)
         {
             if (!PedidoItemExistente(item))
             {
-                throw new DomainExeciption("O item não existe no pedido");
+                throw new DomainException("O item não existe no pedido");
             }
         }
 

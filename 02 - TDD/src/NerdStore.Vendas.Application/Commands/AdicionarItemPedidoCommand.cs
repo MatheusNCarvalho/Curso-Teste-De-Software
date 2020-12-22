@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using NerdStore.Core.Message;
+using NerdStore.Core.Messages;
 using NerdStore.Vendas.Domain;
 using System;
 using System.Collections.Generic;

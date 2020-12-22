@@ -5,13 +5,13 @@ using System.Text;
 
 namespace NerdStore.Vendas.Domain
 {
-    public class PedidoItem
+    public class PedidoItem : Entity
     {
         public PedidoItem(Guid produtoId, string produtoNome, int quantidade, decimal valorUnitario)
         {
             if (quantidade < Pedido.MIN_UNIDADES_ITEM)
             {
-                throw new DomainExeciption($"Mínimo de {Pedido.MIN_UNIDADES_ITEM} unidades por produto");
+                throw new DomainException($"Mínimo de {Pedido.MIN_UNIDADES_ITEM} unidades por produto");
             }
 
             ProdutoId = produtoId;
@@ -20,7 +20,9 @@ namespace NerdStore.Vendas.Domain
             ValorUnitario = valorUnitario;
         }
 
+        public Guid PedidoId { get; private set; }
         public Guid ProdutoId { get; private set; }
+        public Pedido Pedido { get; private set; }
         public string ProdutoNome { get; private set; }
         public int Quantidade { get; private set; }
         public decimal ValorUnitario { get; private set; }
@@ -30,9 +32,19 @@ namespace NerdStore.Vendas.Domain
             return Quantidade * ValorUnitario;
         }
 
-        public void AdicionarUnidades(int unidades)
+        internal void AdicionarUnidades(int unidades)
         {
             Quantidade += unidades;
+        }
+
+        internal void AssociarPedido(Guid pedidoId)
+        {
+            PedidoId = pedidoId;
+        }
+
+        internal void AtualizarUnidades(int unidades)
+        {
+            Quantidade = unidades;
         }
     }
 }

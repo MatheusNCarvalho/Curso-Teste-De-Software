@@ -1,9 +1,10 @@
 ﻿using System;
 using FluentValidation.Results;
+using NerdStore.Core.DomainObjects;
 
 namespace NerdStore.Vendas.Domain
 {
-    public class Voucher
+    public class Voucher : Entity
     {
         protected Voucher() { }
 

@@ -3,7 +3,7 @@ using System;
 
 namespace NerdStore.Core.Data
 {
-    public interface IRepository<TEntity> : IDisposable where TEntity : IAggreagteRoot
+    public interface IRepository<TEntity> : IDisposable where TEntity : IAggregateRoot
     {
         IUnitOfWork UnitOfWork { get; }
     }  

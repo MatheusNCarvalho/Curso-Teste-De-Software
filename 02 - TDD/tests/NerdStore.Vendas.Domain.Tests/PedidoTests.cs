@@ -59,7 +59,7 @@ namespace NerdStore.Vendas.Domain.Tests
             // Act & Assert
             Action action = () => pedido.AdicionarItem(pedidoItem);
 
-            action.Should().Throw<DomainExeciption>();
+            action.Should().Throw<DomainException>();
         }
 
         [Fact(DisplayName = "Adicionar Item Pedido Existente acima do permitido")]
@@ -76,7 +76,7 @@ namespace NerdStore.Vendas.Domain.Tests
             // Act & Assert
             Action action = () => pedido.AdicionarItem(pedidoItem2);
 
-            action.Should().Throw<DomainExeciption>();
+            action.Should().Throw<DomainException>();
         }
 
         [Fact(DisplayName = "Atualizar Item Pedido Inexistente")]
@@ -89,7 +89,7 @@ namespace NerdStore.Vendas.Domain.Tests
 
             // Act &  Assert
             Action action = () => pedido.AtualizarItem(peditoItemAtualizado);
-            action.Should().Throw<DomainExeciption>();
+            action.Should().Throw<DomainException>();
         }
 
         [Fact(DisplayName = "Atualizar Item Pedido Valido")]
@@ -150,7 +150,7 @@ namespace NerdStore.Vendas.Domain.Tests
 
             // Act & Assert
             Action action = () => pedido.AtualizarItem(pedidoItemAtualizado);
-            action.Should().Throw<DomainExeciption>();
+            action.Should().Throw<DomainException>();
         }
 
         [Fact(DisplayName = "Remover Item Pedido Inexistente")]
@@ -164,7 +164,7 @@ namespace NerdStore.Vendas.Domain.Tests
 
             // Act & Assert
             Action action = () => pedido.RemoverItem(peditoItemRemover);
-            action.Should().Throw<DomainExeciption>();
+            action.Should().Throw<DomainException>();
         }
 
         [Fact(DisplayName = "Remover Item Pedido Deve Calcular Valor Total")]
