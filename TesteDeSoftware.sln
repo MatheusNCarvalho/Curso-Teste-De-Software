@@ -31,17 +31,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NerdStore.Core", "02 - TDD\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NerdStore.Vendas.Application", "02 - TDD\src\NerdStore.Vendas.Application\NerdStore.Vendas.Application.csproj", "{80D52C08-2634-4ECF-8344-FBE235A678CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NerdStore.Vendas.Data", "02 - TDD\src\NerdStore.Vendas.Data\NerdStore.Vendas.Data.csproj", "{9618DF95-7251-4D26-B5EF-C1795A5ED608}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NerdStore.Vendas.Data", "02 - TDD\src\NerdStore.Vendas.Data\NerdStore.Vendas.Data.csproj", "{9618DF95-7251-4D26-B5EF-C1795A5ED608}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Testes de Integracao", "03 - Testes de Integracao", "{6B0B223E-7FB6-4108-9039-8E3BB66A4688}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NerdStore.Catalago.Application", "03 - Testes de Integracao\src\NerdStore.Catalago.Application\NerdStore.Catalago.Application.csproj", "{ECDB35E8-436E-43F8-88F8-3A29329161DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NerdStore.Catalago.Application", "03 - Testes de Integracao\src\NerdStore.Catalago.Application\NerdStore.Catalago.Application.csproj", "{ECDB35E8-436E-43F8-88F8-3A29329161DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NerdStore.Catalago.Data", "03 - Testes de Integracao\src\NerdStore.Catalago.Data\NerdStore.Catalago.Data.csproj", "{34D2D264-EB0F-4375-A3B4-79B8636C9ABE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NerdStore.Catalago.Data", "03 - Testes de Integracao\src\NerdStore.Catalago.Data\NerdStore.Catalago.Data.csproj", "{34D2D264-EB0F-4375-A3B4-79B8636C9ABE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NerdStore.Catalago.Domain", "03 - Testes de Integracao\src\NerdStore.Catalago.Domain\NerdStore.Catalago.Domain.csproj", "{EFF38694-0B2D-46D0-A3B7-DE416FE04A86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NerdStore.Catalago.Domain", "03 - Testes de Integracao\src\NerdStore.Catalago.Domain\NerdStore.Catalago.Domain.csproj", "{EFF38694-0B2D-46D0-A3B7-DE416FE04A86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NerdStore.WebApp.MVC", "03 - Testes de Integracao\src\NerdStore.WebApp.MVC\NerdStore.WebApp.MVC.csproj", "{984A2C07-54B8-4BD6-A36D-547D4F1B1D7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NerdStore.WebApp.MVC", "03 - Testes de Integracao\src\NerdStore.WebApp.MVC\NerdStore.WebApp.MVC.csproj", "{984A2C07-54B8-4BD6-A36D-547D4F1B1D7C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C974B0CA-8D95-478A-93A4-427B5BD99567}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NerdStore.WebApp.Tests", "03 - Testes de Integracao\tests\NerdStore.WebApp.Tests\NerdStore.WebApp.Tests.csproj", "{9A7C74DC-5739-4F83-A253-09EBD1E4E8A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +109,10 @@ Global
 		{984A2C07-54B8-4BD6-A36D-547D4F1B1D7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{984A2C07-54B8-4BD6-A36D-547D4F1B1D7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{984A2C07-54B8-4BD6-A36D-547D4F1B1D7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A7C74DC-5739-4F83-A253-09EBD1E4E8A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A7C74DC-5739-4F83-A253-09EBD1E4E8A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A7C74DC-5739-4F83-A253-09EBD1E4E8A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A7C74DC-5739-4F83-A253-09EBD1E4E8A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -127,6 +135,8 @@ Global
 		{34D2D264-EB0F-4375-A3B4-79B8636C9ABE} = {6B0B223E-7FB6-4108-9039-8E3BB66A4688}
 		{EFF38694-0B2D-46D0-A3B7-DE416FE04A86} = {6B0B223E-7FB6-4108-9039-8E3BB66A4688}
 		{984A2C07-54B8-4BD6-A36D-547D4F1B1D7C} = {6B0B223E-7FB6-4108-9039-8E3BB66A4688}
+		{C974B0CA-8D95-478A-93A4-427B5BD99567} = {6B0B223E-7FB6-4108-9039-8E3BB66A4688}
+		{9A7C74DC-5739-4F83-A253-09EBD1E4E8A2} = {C974B0CA-8D95-478A-93A4-427B5BD99567}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6A366982-B40F-4929-9273-E7CA0FFE9CFA}

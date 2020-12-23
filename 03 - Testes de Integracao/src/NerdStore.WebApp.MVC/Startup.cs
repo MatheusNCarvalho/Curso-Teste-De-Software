@@ -106,18 +106,17 @@ namespace NerdStore.WebApp.MVC
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseAuthentication();
 
-            app.UseRouting();           
-
-            app.UseAuthorization();
+            app.UseRouting();                     
 
             app.UseEndpoints(endpoints => endpoints.MapControllers());
 
-            app.UseSwagger();
-            app.UseSwaggerUI(s =>
-            {
-                s.SwaggerEndpoint("/swagger/v1/swagger.json", "desenvolvedor.io API v1.0");
-            });
+            //app.UseSwagger();
+            //app.UseSwaggerUI(s =>
+            //{
+            //    s.SwaggerEndpoint("/swagger/v1/swagger.json", "desenvolvedor.io API v1.0");
+            //});
         }
     }
 }

@@ -15,6 +15,8 @@ using NerdStore.Catalogo.Data;
 using NerdStore.Vendas.Data;
 using NerdStore.WebApp.MVC.Models;
 using NerdStore.WebApp.MVC.Setup;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace NerdStore.WebApp.MVC
 {
@@ -26,8 +28,6 @@ namespace NerdStore.WebApp.MVC
         {
             Configuration = configuration;
         }
-
-
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -73,8 +73,19 @@ namespace NerdStore.WebApp.MVC
                 };
             });
 
-            services.AddControllers();
-            services.AddHttpContextAccessor();
+            services.AddAuthorization(auth =>
+            {
+                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
+                    .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
+                    .RequireAuthenticatedUser().Build());
+            });
+
+            services.AddControllers(options =>
+            {
+                options.Filters.Add(new AuthorizeFilter("Bearer"));
+            });
+
+            //services.AddHttpContextAccessor();
 
             services.AddAutoMapper(typeof(DomainToViewModelMappingProfile), typeof(ViewModelToDomainMappingProfile));
 
@@ -84,23 +95,17 @@ namespace NerdStore.WebApp.MVC
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {          
+        {
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            app.UseAuthentication();
+
             app.UseRouting();
 
-            app.UseAuthorization();
-
             app.UseEndpoints(endpoints => endpoints.MapControllers());
-
-            app.UseSwagger();
-            app.UseSwaggerUI(s =>
-            {
-                s.SwaggerEndpoint("/swagger/v1/swagger.json", "desenvolvedor.io API v1.0");
-            });
         }
     }
 }

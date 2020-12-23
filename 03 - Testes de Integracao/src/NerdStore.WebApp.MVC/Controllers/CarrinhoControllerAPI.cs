@@ -18,8 +18,7 @@ using NerdStore.Vendas.Application.Queries;
 using NerdStore.WebApp.MVC.Models;
 
 namespace NerdStore.WebApp.MVC.Controllers
-{
-    [Authorize]
+{   
     public class CarrinhoControllerApi : ControllerBase
     {
         private readonly IProdutoAppService _produtoAppService;
@@ -102,7 +101,7 @@ namespace NerdStore.WebApp.MVC.Controllers
         [HttpPost("api/login")]
         public async Task<IActionResult> Login([FromBody] LoginViewModel login)
         {
-            var result = await _signInManager.PasswordSignInAsync(login.Email, login.Senha, false, true);
+            var result = await _signInManager.PasswordSignInAsync(login.Email, login.Senha, false, false);
 
             if (result.Succeeded)
             {
